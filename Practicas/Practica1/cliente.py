@@ -60,7 +60,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as TCPClientSocket:
         dificultad = input("Selecciona la dificultad (f, d):")
         Bdificultad = pickle.dumps(dificultad)
         print("Enviando mensaje a servidor...")
-        TCPClientSocket.sendall(Bdificultad)#la letra "b" transforma la cadena de caracteres a bytes.
+        TCPClientSocket.sendall(Bdificultad)#la letra "b" transforma la cadena de caracteres a bytes
         print("Recibiendo datos del servidor...")
         while True:
             buscaminas_mapa = pickle.loads(TCPClientSocket.recv(buffer_size))

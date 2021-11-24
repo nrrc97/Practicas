@@ -4,7 +4,7 @@ from os import system, name
 import random
 import pickle
 
-HOST = "192.168.1.111"  # Direccion de la interfaz de loopback estándar (localhost) 192.168.1.111
+HOST = "192.168.1.111"
 PORT = 65432  # Puerto que usa el cliente
 buffer_size = 8192
 
