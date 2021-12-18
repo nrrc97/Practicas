@@ -10,7 +10,6 @@ import logging
 HOME = os.getcwd()
 path = HOME + "/Usuarios.json"
 
-
 def clear():
     # Para Windows
     if name == 'nt':
@@ -35,6 +34,17 @@ def BorrarDirectorio(r, borrar=False):
             else:
                 BorrarDirectorio(r + "/" + contenido)
         os.rmdir(r)
+
+
+def CopiarArchivo(original, copia, ruta):
+    with open(original, "r") as archivo1:
+        contenido = archivo1.read()
+
+    with open(copia, "w") as archivo2:
+        archivo2.write(contenido)
+
+    #ArchivosAbiertos.remove(ruta + "/" + original);
+    os.remove(original)
 
 
 class Solicitudes(Solicitudes_pb2_grpc.CommandsServicer):
@@ -135,8 +145,8 @@ class Solicitudes(Solicitudes_pb2_grpc.CommandsServicer):
                 r = routes[i]
             if i == range(len_ids):
                 print("Error al cargar id de usuario")
-        nombreArchivo = r + request.mensaje3
-        CopiarArchivo(nombreArchivo, r + "/" + request.mensaje4 + ".txt")
+        nombreArchivo = r + request.mensaje3 + ".txt"
+        CopiarArchivo(nombreArchivo, r + request.mensaje4 + ".txt", r)
         return Solicitudes_pb2.Response(respuesta='\tEl archivo se renombro con exito')
 
 
@@ -151,7 +161,7 @@ class Solicitudes(Solicitudes_pb2_grpc.CommandsServicer):
                 r = routes[i]
             if i == range(len_ids):
                 print("Error al cargar id de usuario")
-        nombreArchivo = r + request.mensaje3
+        nombreArchivo = r + request.mensaje3 + ".txt"
         os.remove(nombreArchivo)
         return Solicitudes_pb2.Response(respuesta="\tEl archivo se ha eliminado")
 

@@ -8,7 +8,7 @@ service Commands{
     rpc Create (Request2) returns (Response) {}
     rpc Read (Request2) returns (Response) {}
     rpc Write (Request3) returns (Response) {}
-    rpc Rename (Request2) returns (Response) {}
+    rpc Rename (Request3) returns (Response) {}
     rpc Remove (Request2) returns (Response) {}
     rpc MkDir (Request2) returns (Response) {}
     rpc RmDir (Request2) returns (Response) {}

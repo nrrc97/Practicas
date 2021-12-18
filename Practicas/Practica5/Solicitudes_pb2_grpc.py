@@ -41,7 +41,7 @@ class CommandsStub(object):
                 )
         self.Rename = channel.unary_unary(
                 '/practica5.Commands/Rename',
-                request_serializer=Solicitudes__pb2.Request2.SerializeToString,
+                request_serializer=Solicitudes__pb2.Request3.SerializeToString,
                 response_deserializer=Solicitudes__pb2.Response.FromString,
                 )
         self.Remove = channel.unary_unary(
@@ -170,7 +170,7 @@ def add_CommandsServicer_to_server(servicer, server):
             ),
             'Rename': grpc.unary_unary_rpc_method_handler(
                     servicer.Rename,
-                    request_deserializer=Solicitudes__pb2.Request2.FromString,
+                    request_deserializer=Solicitudes__pb2.Request3.FromString,
                     response_serializer=Solicitudes__pb2.Response.SerializeToString,
             ),
             'Remove': grpc.unary_unary_rpc_method_handler(
@@ -305,7 +305,7 @@ class Commands(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/practica5.Commands/Rename',
-            Solicitudes__pb2.Request2.SerializeToString,
+            Solicitudes__pb2.Request3.SerializeToString,
             Solicitudes__pb2.Response.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
