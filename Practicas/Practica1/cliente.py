@@ -20,10 +20,14 @@ def clear():
     # Para Mac y Linux
     else:
         _ = system('clear')
+
+
 def MostrarMapa(map):
     for row in map:
         print(" ".join(str(cell) for cell in row))
         print("")
+
+
 def CheckContinuarJuego(puntos):
     print("Tu puntuacion: ", puntos)
     continuar = input("Deseas intentar de nuevo? (s/n) :")
@@ -38,6 +42,8 @@ def CheckContinuarJuego(puntos):
     BContinue = pickle.dumps(Continue)
     TCPClientSocket.sendall(BContinue)
     return True
+
+
 def CheckContinuarJuego2(puntos):
     print("Tu puntuacion: ", puntos)
     continuar = input("Deseas empezar nueva partida? (s/n) :")
@@ -52,6 +58,8 @@ def CheckContinuarJuego2(puntos):
     BContinue = pickle.dumps(Continue)
     TCPClientSocket.sendall(BContinue)
     return True
+
+
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as TCPClientSocket:
     TCPClientSocket.connect((HOST, int(PORT)))
     StatusJuego = True

@@ -14,7 +14,7 @@ def accept(sock, mask):
     sel.register(conn, selectors.EVENT_READ, read)
 
 def read(conn, mask):
-    data = conn.recv(1000)  # Should be ready
+    data = conn.recv(1024)  # Should be ready
     if data:
         print('respondiendo', repr(data), 'a', conn)
         conn.send(data)  # Hope it won't block

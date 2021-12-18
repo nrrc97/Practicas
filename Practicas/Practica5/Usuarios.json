@@ -1,0 +1,7 @@
+{
+  "users": ["Dick", "Harry", "Tom"],
+  "email": ["d-boss@mgs.com", "h-raven@mgs.com", "t-major@mgs.com"],
+  "passwords": ["KeptYouWaitingHuh", "NeverBeGameOver", "LaLiLuLeLo"],
+  "id": [1, 2, 3],
+  "route": ["./Archivos/Cliente1/", "./Archivos/Cliente2/", "./Archivos/Cliente3/"]
+}

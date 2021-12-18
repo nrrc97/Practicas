@@ -1,0 +1,43 @@
+syntax = "proto3";
+package practica5;
+
+
+service Commands{
+    rpc User (simple_Request) returns (Response) {}
+    rpc Password (simple_Request) returns (Response2) {}
+    rpc Create (Request2) returns (Response) {}
+    rpc Read (Request2) returns (Response) {}
+    rpc Write (Request3) returns (Response) {}
+    rpc Rename (Request2) returns (Response) {}
+    rpc Remove (Request2) returns (Response) {}
+    rpc MkDir (Request2) returns (Response) {}
+    rpc RmDir (Request2) returns (Response) {}
+    rpc ReadDir (Request) returns (stream Response) {}
+    rpc CD (Request) returns (Response) {}
+}
+message simple_Request{
+    string mensaje = 1;     //Comando
+}
+message Request{
+    string mensaje = 1;     //Comando
+    string mensaje2 = 2;    //id de usuario
+}
+message Response{
+    string respuesta = 1;   //Confirmacion
+}
+message Request2{
+    string mensaje = 1;     //Comando
+    string mensaje2 = 2;    //id de usuario
+    string mensaje3 = 3;    //Argumento de funcion
+}
+message Response2{
+    string respuesta = 1;   //Confirmacion
+    string respuesta2 = 2;  //Mensaje resultante de la funcion
+}
+message Request3{
+    string mensaje = 1;     //Comando
+    string mensaje2 = 2;    //id de usuario
+    string mensaje3 = 3;    //Argumento de funcion
+    string mensaje4 = 4;    //Segundo argumento de funcion
+}
+// Compilar:$ python3 -m grpc_tools.protoc -I=.  --python_out=. --grpc_python_out=. ./Solicitudes.proto

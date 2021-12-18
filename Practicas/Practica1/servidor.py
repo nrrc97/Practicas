@@ -4,7 +4,7 @@ from os import system, name
 import random
 import pickle
 
-HOST = "192.168.1.111"
+HOST = "192.168.0.12"
 PORT = 65432  # Puerto que usa el cliente
 buffer_size = 8192
 
@@ -15,19 +15,6 @@ def clear():
     # Para Mac y Linux
     else:
         _ = system('clear')
-
-
-def count(arr, x, y, n):
-    offsets = ((-1, -1), (-1, 0), (-1, 1), (0, 1), (1, 1), (1, 0), (1, -1), (0, -1))
-    count = 0
-    for offset in offsets:
-        offset_y = y + offset[0]
-        offset_x = x + offset[1]
-
-        if ((offset_y >= 0 and offset_y <= n) and (offset_x >= 0 and offset_x <= n)):
-            if arr[offset_y][offset_x] == 'X':
-                count += 1
-    return count
 
 
 def GenerarMapaBuscaMinas(n, k):
