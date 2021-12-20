@@ -2,7 +2,7 @@ syntax = "proto3";
 package problema2_1;
 
 service Data{
-    rpc Server (ReqServer) returns (ResServer) {}
+    rpc Server (ReqServer) returns (ResServer) {} // De cliente a balanceador
 }
 
 message ReqServer{

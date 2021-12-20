@@ -23,12 +23,16 @@ def balanceador(cliente: str):
                 print(f"Solicitud enviada a [{servidor}]")
                 print(f"Conexiones activas de [{res_servidor.host}]:[{res_servidor.conexiones}]")
                 if res_servidor.conexiones == 0:
+                    print(f"\tLas conexiones del servidor [{res_servidor.host}] son 0")
                     conexion = res_servidor.conexiones
                     servidor_to_transfer = res_servidor.host
                 elif res_servidor.host == SERVIDORES[0]:
+                    print(f"\tEl primer servidor en la tupla es el [{res_servidor.host}]")
                     conexion = res_servidor.conexiones
                     servidor_to_transfer = res_servidor.host
                 elif conexion > res_servidor.conexiones:
+                    print(f"\tEl numero de conexiones del servidor ({res_servidor.conexiones})")
+                    print(f"\t es menor al numero de veces que no se ha redireccionado al servidor ({conexion})")
                     conexion = res_servidor.conexiones
                     servidor_to_transfer = res_servidor.host
                 else:

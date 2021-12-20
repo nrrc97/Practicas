@@ -2,10 +2,10 @@ syntax = "proto3";
 package problema2_2;
 
 service Data{
-    rpc ServidorConexiones (ReqServidor) returns (ResConexion) {}
-    rpc ConexionExitosa (ReqConexion) returns (ResConexion) {}
-    rpc MSaludo (ReqSaludo) returns (ResSaludo) {}
-    rpc RemoveConexion (ReqConexion) returns (ResConexion) {}
+    rpc ServidorConexiones (ReqServidor) returns (ResConexion) {}// De balanceador a servidores
+    rpc ConexionExitosa (ReqConexion) returns (ResConexion) {}// De cliente a servidor
+    rpc MSaludo (ReqSaludo) returns (ResSaludo) {}// De cliente a servidor
+    rpc RemoveConexion (ReqConexion) returns (ResConexion) {} // No existe
 }
 
 message ReqServidor{
