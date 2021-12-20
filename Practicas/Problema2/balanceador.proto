@@ -1,0 +1,14 @@
+syntax = "proto3";
+package problema2_1;
+
+service Data{
+    rpc Server (ReqServer) returns (ResServer) {}
+}
+
+message ReqServer{
+    string ip = 1;
+}
+message ResServer{
+    string host_servidor = 1;
+}
+// python3 -m grpc_tools.protoc -I=.  --python_out=. --grpc_python_out=. ./balanceador.proto

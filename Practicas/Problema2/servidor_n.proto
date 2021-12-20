@@ -1,0 +1,31 @@
+syntax = "proto3";
+package problema2_2;
+
+service Data{
+    rpc ServidorConexiones (ReqServidor) returns (ResConexion) {}
+    rpc ConexionExitosa (ReqConexion) returns (ResConexion) {}
+    rpc MSaludo (ReqSaludo) returns (ResSaludo) {}
+    rpc RemoveConexion (ReqConexion) returns (ResConexion) {}
+}
+
+message ReqServidor{
+    string ip = 1;
+    string tipo = 2;
+}
+message ReqConexion{
+    string ip = 1;
+    string tipo = 2;
+}
+message ReqSaludo{
+    string nombre = 1;
+}
+message ResConexion{
+    string host = 1;
+    bool conexion = 2;
+    int32 conexiones = 3;
+    string mensaje = 4;
+}
+message ResSaludo{
+    string saludo = 1;
+}
+// python3 -m grpc_tools.protoc -I=.  --python_out=. --grpc_python_out=. ./servidor_n.proto
